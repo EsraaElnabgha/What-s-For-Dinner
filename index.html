@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-3">
+        <div class="container-fluid ">
+            <div class="logo d-flex align-items-center">
+                <i class="fa-solid fa-utensils me-3"></i>
+                <div>
+                    <a class="navbar-brand" href="#">What's For Dinner</a>
+                    <p class="p-0 m-0">Your daily meal inspiration</p>
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3 align-items-start align-items-lg-center mt-3 mt-lg-0">
+                    <li class="nav-item d-flex gap-3 ">
+                        <i class="fa-solid fa-bookmark "></i>
+                        <span class="d-lg-none">Saved Recipes</span>
+                    </li>
+                    <li class="nav-item d-flex gap-3">
+                        <i class="fa-solid fa-clock-rotate-left "></i>
+                        <span class="d-lg-none">Recent</span>
+                    </li>
+                    <li class="nav-item d-flex gap-3">
+                        <i class="fa-solid fa-gear "></i>
+                        <span class="d-lg-none">Settings</span>
+                    </li>
+                    <li class="nav-item d-flex gap-3">
+                        <img src="./images/avatar-4.jpg" alt="" class="">
+                        <span class="d-lg-none">Profile</span>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- section -->
+    <section class="dinner-card bg-white shadow-lg overflow-hidden mb-4 " id="section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5 px-0">
+                    <div class="img-part position-relative">
+                        <div class="span-absolute position-absolute d-flex gap-2 align-items-center">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <div class="rate fw-bold" id="rate"></div>
+                            <span id="reviews"></span>
+                        </div>
+                        <img src="" id="card-img">
+                        <div class="overlay position-absolute d-flex justify-content-evenly align-items-center">
+                            <div class="d-flex flex-column align-items-center justify-content-center">
+                                <i class="fa-solid fa-clock fs-4" style="color:orangered;"></i>
+                                <p class="mb-0">Prep Time</p>
+                                <span id="prep-time" class="fw-bold"></span>
+                            </div>
+                            <div class="d-flex flex-column align-items-center justify-content-center">
+                                <i class="fa-solid fa-fire-burner fs-4" style="color: red;"></i>
+                                <p class="mb-0">Cook Time</p>
+                                <span id="cook-time" class="fw-bold"></span>
+                            </div>
+                            <div class="d-flex flex-column align-items-center justify-content-center">
+                                <i class="fa-solid fa-users fs-4" style="color: blue;"></i>
+                                <p class="mb-0">Servings</p>
+                                <span id="servings" class="fw-bold"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-7 ">
+                    <div class="text-part p-4">
+                        <div class="spans mb-3 d-flex gap-3">
+                            <span class="difficulty" id="easy"></span>
+                            <span class="region" id="region"></span>
+                        </div>
+                        <div class="head d-flex justify-content-between ">
+                            <div>
+                                <h3 class=" fw-bolder h1" id="title"></h3>
+                                <p id="desc"></p>
+                            </div>
+                            <div class="icons d-flex gap-2">
+                                <i class="fa-solid fa-bookmark"></i>
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </div>
+                        </div>
+                        <div id="extended-message" class="alert d-flex align-items-center  py-3 px-3 d-none mt-3 gap-3"
+                            role="alert">
+                            <i class="fa-solid fa-triangle-exclamation fs-5 text-danger"></i>
+                            <div>
+                                <h6 class="mb-0">Extended Preparation Time</h6>
+                                <p class="text-danger mb-0">This recipe requires more than 45 minutes to prepare. Plan
+                                    accordingly!</p>
+                            </div>
+                        </div>
+                        <div class="navs pb-5">
+                            <ul class="list-unstyled pb-3 d-flex no-wrap justify-content-around  " role="tablist"
+                                id="pills-tab">
+                                <li class="nav-item" role="presentation">
+
+                                    <button class="nav-link active" id="pills-ingredients-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-ingredients" type="button" role="tab"
+                                        aria-controls="pills-home" aria-selected="true">
+                                        <i class="fa-solid fa-list-check me-2 fs-6"></i>
+                                        Ingredients</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link " id="pills-instructions-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-instructions" type="button" role="tab"
+                                        aria-controls="pills-home" aria-selected="true">
+                                        <i class="fa-solid fa-book-open me-2 fs-6"></i>
+                                        Instructions </button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link " id="pills-nutrition-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-nutrition" type="button" role="tab"
+                                        aria-controls="pills-home" aria-selected="true">
+                                        <i class="fa-solid fa-chart-pie me-2 fs-6"></i>
+                                        Nutrition
+                                    </button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link " id="pills-tips-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-tips" type="button" role="tab" aria-controls="pills-home"
+                                        aria-selected="true">
+                                        <i class="fa-solid fa-lightbulb me-2 fs-6"></i>
+                                        Chef's Tips
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane overflow active  show" id="pills-ingredients" role="tabpanel"
+                                    aria-labelledby="pills-home-tab" tabindex="0">
+                                    <div class="row gap-0">
+                                        <div class="col-lg-1 col-2">
+                                            <div class="ingredient-item d-flex gap-3 mb-3">
+                                                <span class="number">1</span>
+                                            </div>
+                                            <div class="ingredient-item d-flex gap-3 mb-3">
+                                                <span class="number">2</span>
+                                            </div>
+                                            <div class="ingredient-item d-flex gap-3 mb-3">
+                                                <span class="number">3</span>
+                                            </div>
+                                            <div class="ingredient-item d-flex gap-3 mb-3">
+                                                <span class="number">4</span>
+                                            </div>
+                                            <div class="ingredient-item d-flex gap-3 mb-3">
+                                                <span class="number">5</span>
+                                            </div>
+                                            <div class="ingredient-item d-flex gap-3 mb-3">
+                                                <span class="number">6</span>
+                                            </div>
+                                            <div class="ingredient-item d-flex gap-3 mb-3">
+                                                <span class="number">7</span>
+                                            </div>
+                                            <div class="ingredient-item d-flex gap-3 mb-3">
+                                                <span class="number">8</span>
+                                            </div>
+                                            <div class="ingredient-item d-flex gap-3 mb-3">
+                                                <span class="number">9</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-10 col-lg-11">
+                                            <ul id="ingredients" class="list-unstyled ">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane overflow instructions-tab show" id="pills-instructions"
+                                    role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="1">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-2">
+                                            <div class="instruction-item  mb-3">
+                                                <span class="number">1</span>
+                                            </div>
+                                            <div class="instruction-item  mb-3">
+                                                <span class="number">2</span>
+                                            </div>
+                                            <div class="instruction-item mb-3">
+                                                <span class="number">3</span>
+                                            </div>
+                                            <div class="instruction-item  mb-3">
+                                                <span class="number">4</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-11 col-10">
+                                            <ul id="instructions" class="list-unstyled">
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="tab-pane overflow nutrition show" id="pills-nutrition" role="tabpanel"
+                                    aria-labelledby="pills-contact-tab" tabindex="2">
+                                    <div class="nutrition-items row ">
+                                        <div class="col-lg-6 ">
+                                            <div class=" cal d-flex justify-content-between mb-5 px-2 ">
+                                                <div class="d-flex gap-3 align-items-center justify-content-center">
+                                                    <i class="fa-solid fa-fire"></i>
+                                                    <p>Calories</p>
+                                                </div>
+                                                <div class="fw-bold  fs-4" id="calories"> </div>
+                                            </div>
+                                            <div class="carb d-flex justify-content-between mb-5 px-2">
+                                                <div class="d-flex gap-3 align-items-center">
+                                                    <i class="fa-solid fa-wheat-awn"></i>
+                                                    <p>Carbohydrates</p>
+                                                </div>
+                                                <div class="fw-bold  fs-4" id="carbs"> </div>
+                                            </div>
+                                            <div class="fiber d-flex justify-content-between mb-5 px-2">
+                                                <div class="d-flex gap-3 align-items-center">
+                                                    <i class="fa-solid fa-seedling"></i>
+                                                    <p>Fiber</p>
+                                                </div>
+                                                <div class="fw-bold  fs-4" id="fibers"> </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="protein d-flex justify-content-between mb-5 px-2">
+                                                <div class="d-flex gap-3 align-items-center">
+                                                    <i class="fa-solid fa-dumbbell"></i>
+                                                    <p>Protein</p>
+                                                </div>
+                                                <div class="fw-bold  fs-4" id="protein"> </div>
+                                            </div>
+                                            <div class="fat d-flex justify-content-between mb-5 px-2">
+                                                <div class="d-flex gap-3 align-items-center">
+                                                    <i class="fa-solid fa-droplet"></i>
+                                                    <p>Fat</p>
+                                                </div>
+                                                <div class="fw-bold  fs-4" id="fat"> </div>
+                                            </div>
+                                            <div class="sodium d-flex justify-content-between mb-5 px-2">
+                                                <div class="d-flex gap-3 align-items-center">
+                                                    <i class="fa-solid fa-cube"></i>
+                                                    <p>Sodium</p>
+                                                </div>
+                                                <div class="fw-bold fs-4" id="sodium"> </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane overflow  tips  show" id="pills-tips" role="tabpanel"
+                                    aria-labelledby="pills-disabled-tab" tabindex="3">
+                                    <div>
+                                        <div class="tips-item d-flex gap-3 mb-3">
+                                            <i class="fa-solid fa-check"></i>
+                                            <p id="tip1"></p>
+                                        </div>
+                                        <div class="tips-item d-flex gap-3 mb-3">
+                                            <i class="fa-solid fa-check"></i>
+                                            <p id="tip2"></p>
+                                        </div>
+                                        <div class="tips-item d-flex gap-3 mb-3">
+                                            <i class="fa-solid fa-check"></i>
+                                            <p id="tip3"> </p>
+                                        </div>
+                                        <div class="tips-item d-flex gap-3 mb-3">
+                                            <i class="fa-solid fa-check"></i>
+                                            <p id="tip4"></p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-btn">
+                            <button class="btnn btn" id="change-btn">
+                                <i class="fa-solid fa-rotate fs-6"></i>
+                                Try Another Recipe
+                            </button>
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
